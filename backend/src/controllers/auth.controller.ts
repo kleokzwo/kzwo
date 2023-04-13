@@ -12,7 +12,7 @@ import { AuthService } from 'src/services/auth.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   @Post('login')
   async login(@Body() user: { address: string; password: string }) {
@@ -24,9 +24,7 @@ export class AuthController {
   }
 
   @Post('register')
-  async register(
-    @Body() createUserDto: any,
-  ): Promise<{ accessToken: string }> {
+  async register(@Body() createUserDto: any): Promise<{ accessToken: string }> {
     const { address, password } = createUserDto;
     const user = await this.authService.register(address, password);
     const accessToken = await this.authService.generateAccessToken(user);

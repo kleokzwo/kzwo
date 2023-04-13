@@ -8,14 +8,14 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   // isLoggedIn = false;
 
-  // constructor(private userService: UserService, private readonly authService: AuthService) {}
+  constructor(private userService: UserService) { }
 
-  // public ngOnInit() {
-  //   this.isLoggedIn = this.userService.isUserLoggedIn();
-  // }
+  public async ngOnInit(): Promise<void> {
+    // await this.userService.getDetails();
+  }
 
   // onLogout() {
   //   this.authService.logout();

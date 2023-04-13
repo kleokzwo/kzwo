@@ -14,6 +14,9 @@ export const APP_CONFIG = {
         info: {
             url: 'https://chainz.cryptoid.info/btc2/api.dws?q=addressinfo&a=',
         },
+        price: {
+          url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-2&vs_currencies=usd'
+        }
     },
   },
 

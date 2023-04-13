@@ -44,17 +44,16 @@ export class AuthService {
   }
 
   public logout() {
-    localStorage.removeItem('token'); // remove JWT token from local storage
+    localStorage.removeItem('token');
     this.router.navigate(['./login']);
   }
 
   public isLoggedIn(): boolean {
-    return !!localStorage.getItem('token'); // check if JWT token is present in local storage
+    return !!localStorage.getItem('token');
   }
 
   public getToken(): string {
-    console.log('jwt >>>', localStorage.getItem('token'))
-    return localStorage.getItem('token'); // get JWT token from local storage
+    return localStorage.getItem('token');
   }
 
   public register(address: string, password: string) {}

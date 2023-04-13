@@ -13,6 +13,7 @@ import { LoginComponent } from './pages/auth/login.component';
 import { RegisterComponent } from './pages/auth/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AccountComponent } from './components/accounts/account.component';
+import { Btc2QuickInfoComponent } from './components/btc2-quick-info/btc2-quick-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AccountComponent } from './components/accounts/account.component';
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    AccountComponent
+    AccountComponent,
+    Btc2QuickInfoComponent
   ],
   imports: [
     BrowserModule,
