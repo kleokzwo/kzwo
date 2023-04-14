@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, lastValueFrom } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { Environment } from '../../environments/environment.class';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
 import { APP_CONFIG } from '../../environments/environment';
-import { promises } from 'dns';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 export interface Auth {
   address: string;
   password: string;

@@ -23,7 +23,6 @@ export class AccountComponent implements OnInit {
 
     public async getCurrentUsdPrice(): Promise<number> {
         const data = await this.userService.getUsdPrice(this.address.balance);
-        console.log('data >>>', data);
         this.totalBalance = (data['bitcoin-2'].usd * this.address.balance).toFixed(4).toString();
         return data['bitcoin-2'].usd * this.address.balance;
     }
