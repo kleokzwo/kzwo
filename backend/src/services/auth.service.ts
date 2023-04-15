@@ -10,6 +10,7 @@ import { UserService } from './user.service';
 import * as bcrypt from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import * as crypto from 'crypto';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AuthService {
@@ -20,7 +21,7 @@ export class AuthService {
 
   public async validateUser(address: string, password: string): Promise<User> {
     const user = await this.userService.findOneByAddress(address);
-    if (user && user.password === password) {
+    if (user && (await bcrypt.compare(password, user.password))) {
       return user;
     }
     return null;
@@ -39,16 +40,20 @@ export class AuthService {
   }
 
   public async register(address: string, password: string): Promise<any> {
+    console.log('address', password);
     const user = await this.userService.findOne(address);
+    console.log('user >>', user);
     const saltRounds = 10;
     if (user) {
       throw new BadRequestException('Address already registered');
     }
 
     const hashedPassword = bcrypt.hash(password, saltRounds);
+    console.log('hashedPassword >>>', await hashedPassword);
     const newUser = await this.userService.create({
-      address,
-      password: hashedPassword,
+      address: address,
+      password: await hashedPassword,
+      sfa: false,
     });
 
     const payload = { address: newUser.address };
@@ -57,6 +62,7 @@ export class AuthService {
       expires_in: 3600,
     };
   }
+
   public generateAccessToken(user: User): string {
     const JWT_SECRET_KEY = crypto.randomBytes(64).toString('hex');
     const payload = { username: user.address, sub: user.id };

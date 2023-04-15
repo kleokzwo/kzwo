@@ -21,4 +21,11 @@ export class TransactionComponent implements OnInit {
     this.transactions = transaction;
     return transaction;
   }
+
+  public async paginated(index: number): Promise<any> {
+    console.log('paginated >>>', index)
+    const pageNumber = 1;
+    const pageSize = 10;
+    this.transactions = await this.transactionService.getLatestTransactions(index, 3);
+  }
 }

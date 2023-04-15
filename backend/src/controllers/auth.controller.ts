@@ -5,14 +5,15 @@ import {
   // UseGuards,
   Body,
   UnauthorizedException,
+  Delete,
+  Param,
 } from '@nestjs/common';
 import { AuthService } from 'src/services/auth.service';
-// import { LocalAuthGuard } from 'src/auth/authGuard';
-// import { User } from 'src/entities/user.entity';
+import { UserService } from 'src/services/user.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private readonly userService: UserService) { }
 
   @Post('login')
   async login(@Body() user: { address: string; password: string }) {
@@ -29,5 +30,10 @@ export class AuthController {
     const user = await this.authService.register(address, password);
     const accessToken = await this.authService.generateAccessToken(user);
     return { accessToken };
+  }
+
+  @Delete(':id')
+  removeUser(@Param('id') id: string) {
+    return this.userService.removeUserById(id);
   }
 }

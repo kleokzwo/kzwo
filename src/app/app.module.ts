@@ -12,6 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { AccountComponent } from './components/accounts/account.component';
 import { Btc2QuickInfoComponent } from './components/btc2-quick-info/btc2-quick-info.component';
 import { TransactionComponent } from './components/transactions/transaction.component';
+import { TweetComponent } from './components/tweet/tweet.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TransactionComponent } from './components/transactions/transaction.comp
     HeaderComponent,
     AccountComponent,
     Btc2QuickInfoComponent,
-    TransactionComponent
+    TransactionComponent,
+    TweetComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

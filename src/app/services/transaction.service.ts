@@ -31,7 +31,7 @@ export class TransactionService {
         amount: (tx.total_output - tx.total_input).toFixed(4),
         receiver: tx.inputs ? tx.inputs[0].addr : '',
         sender: tx.outputs ? tx.outputs[1].addr : ''
-      })).slice(0, 5);
+      }));
       return latestTransactions;
     } catch (error) {
       throw new Error(error);
@@ -47,4 +47,11 @@ export class TransactionService {
     return formattedDate;
   }
 
+  public async getLatestTransactions(pageNumber: number, pageSize: number): Promise<any[]> {
+    const transactionDetails = await this.getTransactionFromUserAddress();
+    const startIndex = (pageNumber - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const paginatedTransactions = transactionDetails.slice(startIndex, endIndex);
+    return paginatedTransactions;
+  }
 }
