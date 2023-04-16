@@ -17,13 +17,13 @@ export class TransactionComponent implements OnInit {
 
   public async getTransactionsUser(): Promise<any> {
     const transaction = await this.transactionService.getTransactionFromUserAddress();
-    console.log('data transaction >>>', transaction)
+    console.log('data transaction >>>', transaction);
     this.transactions = transaction;
     return transaction;
   }
 
   public async paginated(index: number): Promise<any> {
-    console.log('paginated >>>', index)
+    console.log('paginated >>>', index);
     const pageNumber = 1;
     const pageSize = 10;
     this.transactions = await this.transactionService.getLatestTransactions(index, 3);
