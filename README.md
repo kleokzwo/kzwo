@@ -35,9 +35,9 @@ Start the dev server
 
 Login
 
-![App Screenshot](https://github.com/kleokzwo/kzwo/tree/master/src/assets/screenshot/login.png)
+![App Screenshot](https://github.com/kleokzwo/kzwo/tree/master/src/assets/screenshot/login.png | width=200)
 
 Dashboard
 
-![App Screenshot](https://github.com/kleokzwo/kzwo/tree/master/src/assets/screenshot/dashboard.png)
+![App Screenshot](https://github.com/kleokzwo/kzwo/tree/master/src/assets/screenshot/dashboard.png | width=200)
 
