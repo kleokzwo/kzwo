@@ -16,6 +16,10 @@
     "build": {
       "executor": "@angular-builders/custom-webpack:browser",
       "options": {
+        "allowedCommonJsDependencies": [
+          "rxjs",
+          "rxjs/operators"
+       ],
         "outputPath": "dist",
         "index": "src/index.html",
         "main": "src/main.ts",

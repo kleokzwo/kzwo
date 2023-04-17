@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './pages/auth/login.component';
-import { RegisterComponent } from './pages/auth/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AccountComponent } from './components/accounts/account.component';
 import { Btc2QuickInfoComponent } from './components/btc2-quick-info/btc2-quick-info.component';
@@ -15,11 +13,14 @@ import { TransactionComponent } from './components/transactions/transaction.comp
 import { TweetComponent } from './components/tweet/tweet.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { TransactionPageComponent } from './pages/transactions/transaction-page.component';
+import { PagesComponent } from './pages/pages.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // UserListComponent,
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
@@ -29,13 +30,14 @@ import { TransactionPageComponent } from './pages/transactions/transaction-page.
     TransactionComponent,
     TransactionPageComponent,
     TweetComponent,
-    PaginationComponent
+    PaginationComponent,
+    PagesComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
     ReactiveFormsModule,
 
   ],

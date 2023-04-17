@@ -9,16 +9,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  // isLoggedIn = false;
-
   constructor(private userService: UserService) { }
 
   public async ngOnInit(): Promise<void> {
-    // await this.userService.getDetails();
   }
 
-  // onLogout() {
-  //   this.authService.logout();
-  //   this.isLoggedIn = false;
-  // }
 }

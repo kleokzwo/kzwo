@@ -1,24 +1,28 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { LoginComponent } from './login/login.component';
-// import { RegistrationComponent } from './registration/registration.component';
 import { AuthGuard } from './guard/auth.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './pages/auth/login.component';
-import { RegisterComponent } from './pages/auth/register.component';
+
 import { TransactionPageComponent } from './pages/transactions/transaction-page.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TransferMoneyComponent } from './pages/transfer-money/transfer-money.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { PagesComponent } from './pages/pages.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'transaction', component: TransactionPageComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'transfer', component: TransferMoneyComponent, canActivate: [AuthGuard] },
+  { path: '', component: AuthComponent, children: [
+    { path: '', component: LoginComponent },
+    { path: 'register', component: RegisterComponent }
+  ]},
+  { path: '', component: PagesComponent, canActivate: [AuthGuard], children: [
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'transaction', component: TransactionPageComponent },
+    { path: 'profile', component: ProfileComponent },
+    { path: 'transfer', component: TransferMoneyComponent }
+  ]}
 ];
 
 @NgModule({
