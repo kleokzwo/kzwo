@@ -35,9 +35,9 @@ Start the dev server
 
 Login
 
-<img src="./src/assets/screenshot/login.png" width="300">
+<img src="https://github.com/kleokzwo/kzwo/blob/master/src/assets/screenshot/login.png.png" width="300">
 
 Dashboard
 
-<img src="./src/assets/screenshot/dashboard.png" width="300">
+<img src="https://github.com/kleokzwo/kzwo/blob/master/src/assets/screenshot/dashboard.png.png" width="300">
 
