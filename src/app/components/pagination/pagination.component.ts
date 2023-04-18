@@ -7,7 +7,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 export class PaginationComponent implements OnChanges {
 
   @Input() data: any[] = [];
-  pageSize = 5;
+  pageSize = 10;
   currentPage = 1;
   totalPages = 1;
   pages: number[] = [];
@@ -27,7 +27,10 @@ export class PaginationComponent implements OnChanges {
   getPaginatedData(): any[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    return this.data.slice(startIndex, endIndex);
+    if (this.data) {
+      return this.data.slice(startIndex, endIndex);
+    }
+    return;
   }
 
   parseNumber(str: string): number {

@@ -4,17 +4,17 @@ import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-account',
-    templateUrl: './account.component.html'
+    templateUrl: './account.component.html',
 })
 
 export class AccountComponent implements OnInit {
     public address: Address;
     public totalBalance: string;
-    public constructor(private readonly userService: UserService) {}
+
+    public constructor(private readonly userService: UserService) { }
     public async ngOnInit(): Promise<void> {
         this.address = await this.getAccount();
         await this.getCurrentUsdPrice();
-
     }
 
     public async getAccount(): Promise<Address> {

@@ -46,12 +46,4 @@ export class TransactionService {
     const formattedDate = `${day}.${month}.${year}`;
     return formattedDate;
   }
-
-  public async getLatestTransactions(pageNumber: number, pageSize: number): Promise<any[]> {
-    const transactionDetails = await this.getTransactionFromUserAddress();
-    const startIndex = (pageNumber - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    const paginatedTransactions = transactionDetails.slice(startIndex, endIndex);
-    return paginatedTransactions;
-  }
 }

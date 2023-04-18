@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -17,6 +16,7 @@ import { PagesComponent } from './pages/pages.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { LatestTransactionComponent } from './components/latest-transaction/latest-transaction.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +32,14 @@ import { RegisterComponent } from './auth/register/register.component';
     TweetComponent,
     PaginationComponent,
     PagesComponent,
-    AuthComponent
+    AuthComponent,
+    LatestTransactionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
