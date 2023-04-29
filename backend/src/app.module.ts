@@ -13,6 +13,8 @@ import { AuthController } from './controllers/auth.controller';
 import { UsersModule } from './user.module';
 import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './services/auth.service';
+import { TransferController } from './controllers/transfer.controller';
+import { TransferService } from './services/transfer.service';
 
 @Module({
   imports: [
@@ -28,9 +30,14 @@ import { AuthService } from './services/auth.service';
     }),
     UsersModule,
     AuthModule,
-    PassportModule
+    PassportModule,
   ],
-  controllers: [AppController, UserController, AuthController],
-  providers: [AppService, UserService, AuthService],
+  controllers: [
+    AppController,
+    UserController,
+    AuthController,
+    TransferController,
+  ],
+  providers: [AppService, UserService, AuthService, TransferService],
 })
-export class AppModule {}
+export class AppModule { }

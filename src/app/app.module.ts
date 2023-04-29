@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { AccountComponent } from './components/accounts/account.component';
 import { Btc2QuickInfoComponent } from './components/btc2-quick-info/btc2-quick-info.component';
 import { TransactionComponent } from './components/transactions/transaction.component';
-import { TweetComponent } from './components/tweet/tweet.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { TransactionPageComponent } from './pages/transactions/transaction-page.component';
 import { PagesComponent } from './pages/pages.component';
@@ -29,7 +28,6 @@ import { LatestTransactionComponent } from './components/latest-transaction/late
     Btc2QuickInfoComponent,
     TransactionComponent,
     TransactionPageComponent,
-    TweetComponent,
     PaginationComponent,
     PagesComponent,
     AuthComponent,

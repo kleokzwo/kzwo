@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+const robohashAvatars = require('robohash-avatars');
 
 @Component({
   selector: 'app-pagination',
@@ -7,12 +8,12 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 export class PaginationComponent implements OnChanges {
 
   @Input() data: any[] = [];
-  pageSize = 10;
-  currentPage = 1;
-  totalPages = 1;
-  pages: number[] = [];
+  public pageSize = 10;
+  public currentPage = 1;
+  public totalPages = 1;
+  public pages: number[] = [];
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     if (changes.data && changes.data.currentValue) {
       this.totalPages = Math.ceil(this.data.length / this.pageSize);
       this.pages = Array(this.totalPages).fill(0).map((x, i) => i + 1);
@@ -20,11 +21,11 @@ export class PaginationComponent implements OnChanges {
     }
   }
 
-  goToPage(pageNumber: number): void {
+  public goToPage(pageNumber: number): void {
     this.currentPage = pageNumber;
   }
 
-  getPaginatedData(): any[] {
+  public getPaginatedData(): any[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     if (this.data) {
@@ -33,8 +34,18 @@ export class PaginationComponent implements OnChanges {
     return;
   }
 
-  parseNumber(str: string): number {
+  public parseNumber(str: string): number {
     return parseFloat(str);
+  }
+
+  public getAvatar(name: string) {
+    return robohashAvatars.generateAvatar({
+      username: name,
+      background: robohashAvatars.BackgroundSets.RandomBackground1,
+      characters: robohashAvatars.CharacterSets.Robots,
+      height: 400,
+      width: 400
+    });
   }
 
 }

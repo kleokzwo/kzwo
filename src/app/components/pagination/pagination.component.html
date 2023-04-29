@@ -1,24 +1,22 @@
-<div class="data">
-  <ul class="divide-y-2 divide-gray-100 overflow-x-auto w-full border-b-1 ">
-    <li *ngFor="let item of getPaginatedData()">
-      <div class="px-0 py-2">
-        <div class="flex items-center justify-between">
-          <p class="text-sm font-semibold text-gray-700 truncate">
-            {{ item.sender }}
-          </p>
-          <div class="ml-1 flex-shrink-0 flex">
-            <p class="px-2 inline-flex text-xs leading-5 font-semibold"
-               [ngClass]="{ 'text-green-600': item.amount >= 0,'text-rose-700': item.amount  <= 0}">
-              {{ item.amount }}
-            </p>
-          </div>
+<div class="bg-white rounded-lg shadow-md lg:shadow-lg">
+  <ul class="divide-y divide-gray-300 overflow-x-auto w-full border-b-1 ">
+    <li class="py-3 sm:py-4" *ngFor="let transaction of getPaginatedData()">
+      <div class="flex items-center space-x-4">
+        <div class="flex-shrink-0">
+          <img class="w-8 h-8 rounded-full" src="{{getAvatar(transaction.sender)}}">
+
         </div>
-        <div class="mt-1 sm:flex sm:justify-between">
-          <div class="sm:flex">
-            <p class="flex items-center text-sm font-sans text-gray-500">
-              <time datetime="2020-01-07">{{ item.datetime }}</time>
-            </p>
-          </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium text-gray-900 truncate">
+            {{transaction.sender}}
+          </p>
+          <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+            {{transaction.datetime}}
+          </p>
+        </div>
+        <div class="inline-flex items-center text-base font-semibold text-green-600"
+             [ngClass]="{ 'text-green-600': +transaction.amount >= 0,'text-rose-700': +transaction.amount  <= 0}">
+          {{transaction.amount}}
         </div>
       </div>
     </li>
