@@ -18,7 +18,7 @@ export class TransactionComponent implements OnInit {
   public constructor(private transactionService: TransactionService) { }
 
   public async ngOnInit(): Promise<void> {
-    console.log('was geht hier')
+    console.log('was geht hier!')
     await this.getTransactionsUser();
   }
 
