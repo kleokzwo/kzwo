@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
+  public errorMessage = '';
   public registerForm: FormGroup;
 
   constructor(private authService: AuthService) { }
@@ -23,9 +24,11 @@ export class RegisterComponent implements OnInit {
     // const address = this.registerForm.value.address;
     // const password = this.registerForm.value.password;
     try {
-      await this.authService.register(this.registerForm)
+      await this.authService.register(this.registerForm);
+      console.log('registered >>>', await this.authService.register(this.registerForm))
     } catch (error) {
-      throw new Error(error)
+      this.errorMessage = error.message;
+      throw new Error(error);
     }
   }
 }

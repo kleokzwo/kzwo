@@ -63,7 +63,7 @@ export class AuthService {
     };
     try {
       await lastValueFrom(this.http.post<any>(this.apiUrl.backend.auth.url + '/register', payload));
-      this.router.navigate(['/login']);
+      this.router.navigate(['../login']);
       return;
     } catch (error) {
       throw new Error(error.error.message);

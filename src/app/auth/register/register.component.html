@@ -5,6 +5,10 @@
         <div class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12
             px-6 py-10 sm:px-10 sm:py-6
             bg-white rounded-lg shadow-md lg:shadow-lg">
+            <div *ngIf="errorMessage" class="bg-red-50 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+                <p class="font-bold">Error</p>
+                <p>{{ errorMessage }}</p>
+              </div>
 
             <!-- Card Title -->
             <h2 class="text-center font-semibold text-3xl lg:text-4xl text-gray-800">
