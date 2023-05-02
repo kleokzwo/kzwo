@@ -53,7 +53,6 @@ export class AuthService {
     const newUser = await this.userService.create({
       address: address,
       password: await hashedPassword,
-      sfa: false,
     });
 
     const payload = { address: newUser.address };

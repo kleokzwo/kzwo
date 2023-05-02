@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
@@ -15,13 +15,14 @@ import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './services/auth.service';
 import { TransferController } from './controllers/transfer.controller';
 import { TransferService } from './services/transfer.service';
+import { dataSourceOptions } from 'db/data-source';
+import * as path from 'path';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: join(__dirname, '..', 'database.sqlite'),
-      entities: [User],
+      ...dataSourceOptions,
+      autoLoadEntities: true,
       synchronize: true,
     }),
     TypeOrmModule.forFeature([User]),

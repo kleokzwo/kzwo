@@ -2,7 +2,8 @@
   <h2 class="text-md md:text-md text-gray-700 font-bold tracking-wide md:tracking-wider">
     Settings</h2>
 </div>
-<div class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6 bg-white rounded-lg shadow-md lg:shadow-lg">
+<div
+     class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6 bg-white rounded-lg shadow-md lg:shadow-lg">
   <form class="mt-10">
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -12,7 +13,8 @@
         <input class="appearance-none block w-full py-3 px-1 mt-2
         text-gray-800 appearance-none
         border-b-2 border-gray-100
-        focus:text-gray-500 focus:outline-none focus:border-gray-200" required="" id="grid-last-name" type="text" placeholder="KZWO">
+        focus:text-gray-500 focus:outline-none focus:border-gray-200" required="" id="grid-last-name" type="text"
+               placeholder="KZWO">
       </div>
     </div>
 
@@ -24,7 +26,8 @@
         <input class="appearance-none block w-full py-3 px-1 mt-2
         text-gray-800 appearance-none
         border-b-2 border-gray-100
-        focus:text-gray-500 focus:outline-none focus:border-gray-200" required="" id="grid-first-name" type="text" placeholder="19EDn92bd5hAPvWRe6VYS7LJLYtbhGtjXv">
+        focus:text-gray-500 focus:outline-none focus:border-gray-200" required="" id="grid-first-name" type="text"
+               placeholder="19EDn92bd5hAPvWRe6VYS7LJLYtbhGtjXv">
         <!-- <span class="text-red-700"
         *ngIf="userForm.get('address').hasError('required') && userForm.get('address').touched">Receiver Address is
     required</span> -->
@@ -43,9 +46,11 @@
       </div>
     </div>
 
+    <div class="inline-flex items-center justify-center w-full">
+      <hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-600">
+      <span class="absolute px-3 font-bold text-gray-600 -translate-x-1/2 bg-white left-1/2">Optional</span>
+    </div>
 
-    <!-- Password Input -->
-    <label for="password" class="block mt-2 text-s text-gray-600 font-bold divide-y divide-gray-300">Optional</label>
     <label for="password" class="block mt-2 text-s font-semibold text-gray-600">Private Key</label>
     <input id="password" type="password" formControlName="password" placeholder="********************"
            autocomplete="current-password" class="block w-full py-3 px-1 mt-2 mb-4

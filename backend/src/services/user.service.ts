@@ -23,6 +23,7 @@ export class UserService {
   // end Here
 
   public async findAll(): Promise<User[]> {
+    console.log('findAll >>>', await this.userRepository.find())
     return this.userRepository.find();
   }
 
