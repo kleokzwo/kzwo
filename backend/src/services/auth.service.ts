@@ -41,7 +41,7 @@ export class AuthService {
 
   public async register(address: string, password: string): Promise<any> {
     console.log('address', password);
-    const user = await this.userService.findOne(address);
+    const user = await this.userService.findByAddress(address);
     console.log('user >>', user);
     const saltRounds = 10;
     if (user) {
