@@ -1,12 +1,13 @@
 import { Entity, Index, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { UserInterface } from './user.interface';
 
 @Entity()
-export class User {
+export class User implements UserInterface {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ nullable: true })
-  name?: string;
+  name: string;
 
   @Column()
   password: string;
@@ -16,7 +17,7 @@ export class User {
   address: string;
 
   @Column({ nullable: true })
-  privateKey?: string;
+  privateKey: string;
 }
 
 

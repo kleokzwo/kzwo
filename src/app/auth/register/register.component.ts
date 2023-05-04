@@ -20,13 +20,10 @@ export class RegisterComponent implements OnInit {
   }
 
   public async onSubmit(): Promise<void> {
-    // this.isLoading = true;
-    // const address = this.registerForm.value.address;
-    // const password = this.registerForm.value.password;
     try {
       await this.authService.register(this.registerForm);
-      console.log('registered >>>', await this.authService.register(this.registerForm))
     } catch (error) {
+      console.log('error >>>', error)
       this.errorMessage = error.message;
       throw new Error(error);
     }

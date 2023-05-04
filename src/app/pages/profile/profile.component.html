@@ -4,7 +4,7 @@
 </div>
 <div
      class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6 bg-white rounded-lg shadow-md lg:shadow-lg">
-  <form class="mt-10">
+  <form class="mt-10" [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -14,7 +14,7 @@
         text-gray-800 appearance-none
         border-b-2 border-gray-100
         focus:text-gray-500 focus:outline-none focus:border-gray-200" required="" id="grid-last-name" type="text"
-               placeholder="KZWO">
+               formControlName="name">
       </div>
     </div>
 
@@ -27,22 +27,13 @@
         text-gray-800 appearance-none
         border-b-2 border-gray-100
         focus:text-gray-500 focus:outline-none focus:border-gray-200" required="" id="grid-first-name" type="text"
-               placeholder="19EDn92bd5hAPvWRe6VYS7LJLYtbhGtjXv">
+        formControlName="address" readonly>
         <!-- <span class="text-red-700"
         *ngIf="userForm.get('address').hasError('required') && userForm.get('address').touched">Receiver Address is
     required</span> -->
       </div>
       <div class="w-full md:w-1/2 px-3">
-        <!-- <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          Amount*
-        </label>
-        <input class="appearance-none block w-full py-3 px-1 mt-2
-        text-gray-800 appearance-none
-        border-b-2 border-gray-100
-        focus:text-gray-500 focus:outline-none focus:border-gray-200" required="" id="grid-last-name" type="number" placeholder="1.00"> -->
-        <!-- <span class="text-red-700"
-        *ngIf="userForm.get('amount').hasError('required') && userForm.get('amount').touched">Amount is
-    required</span> -->
+
       </div>
     </div>
 
@@ -52,11 +43,11 @@
     </div>
 
     <label for="password" class="block mt-2 text-s font-semibold text-gray-600">Private Key</label>
-    <input id="password" type="password" formControlName="password" placeholder="********************"
+    <input id="password" type="password"
            autocomplete="current-password" class="block w-full py-3 px-1 mt-2 mb-4
         text-gray-800 appearance-none
         border-b-2 border-gray-100
-        focus:text-gray-500 focus:outline-none focus:border-gray-200" required="">
+        focus:text-gray-500 focus:outline-none focus:border-gray-200" formControlName="privateKey">
     <button type="submit" class="w-32 py-3 mt-10 bg-gray-800 rounded-sm
         font-medium text-white uppercase
         focus:outline-none hover:bg-gray-700 hover:shadow-none">
