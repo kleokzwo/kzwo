@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { AccountComponent } from './components/accounts/account.component';
 import { Btc2QuickInfoComponent } from './components/btc2-quick-info/btc2-quick-info.component';
@@ -16,6 +16,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LatestTransactionComponent } from './components/latest-transaction/latest-transaction.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LatestTransactionComponent } from './components/latest-transaction/late
     PaginationComponent,
     PagesComponent,
     AuthComponent,
-    LatestTransactionComponent
+    LatestTransactionComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -41,25 +41,27 @@ export class AuthService {
 
   public async register(address: string, password: string): Promise<any> {
     console.log('address', password);
-    const user = await this.userService.findByAddress(address);
-    console.log('user >>', user);
-    const saltRounds = 10;
-    if (user) {
-      throw new BadRequestException('Address already registered');
+    try {
+      const user = await this.userService.findByAddress(address);
+      const saltRounds = 10;
+      if (user) {
+        throw new BadRequestException('Address already registered');
+      }
+
+      const hashedPassword = bcrypt.hash(password, saltRounds);
+      console.log('hashedPassword >>>', await hashedPassword);
+      const newUser = await this.userService.create({
+        address: address,
+        password: await hashedPassword,
+      });
+      const payload = { address: newUser.address };
+      return {
+        access_token: this.jwtService.sign(payload),
+        expires_in: 3600,
+      };
+    } catch (error) {
+      throw new BadRequestException();
     }
-
-    const hashedPassword = bcrypt.hash(password, saltRounds);
-    console.log('hashedPassword >>>', await hashedPassword);
-    const newUser = await this.userService.create({
-      address: address,
-      password: await hashedPassword,
-    });
-
-    const payload = { address: newUser.address };
-    return {
-      access_token: this.jwtService.sign(payload),
-      expires_in: 3600,
-    };
   }
 
   public generateAccessToken(user: User): string {

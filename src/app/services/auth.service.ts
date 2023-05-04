@@ -55,8 +55,6 @@ export class AuthService {
   }
 
   public async register(body: any): Promise<any> {
-    console.log('body >>', body.value.address)
-
     const payload = {
       address: body.value.address,
       password: body.value.password
@@ -66,6 +64,7 @@ export class AuthService {
       this.router.navigate(['../login']);
       return;
     } catch (error) {
+      console.log('Error from Service >>>', error)
       throw new Error(error.error.message);
     }
   }
