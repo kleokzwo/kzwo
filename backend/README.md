@@ -4,3 +4,12 @@
 
 this Backend Service build with NestJs.
 we don't need to run manualy see the root readme.
+### Generate Migration
+````
+ npm run migration:generate -- db/migrations/<migration-name>
+````
+
+#### Run Migration
+````
+npm run migration:run
+````
