@@ -4,9 +4,9 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'sqlite',
-  database: join(__dirname, '..', 'database.sqlite'),
-  entities: [User],
-  migrations: [join(__dirname, '..', 'db', 'migrations', '*.js')]
+  database: 'database.sqlite',
+  entities: ['dist/**/*.entity.js'], //[User],
+  migrations: ['dist/db/migrations/*.js'] //[join(__dirname, '..', 'db', 'migrations', '*.js')]
 };
 
 const dataSource = new DataSource(dataSourceOptions);
